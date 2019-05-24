@@ -1,5 +1,5 @@
 name: splinart
-channels: -conda-forge
+channels: - conda-forge
 dependencies:
   - notebook
   - sphinx
