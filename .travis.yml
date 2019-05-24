@@ -1,8 +1,9 @@
 env:
-  - PYVER="2.7"
-  - PYVER="3.4"
-  - PYVER="3.5"
+  # - PYVER="2.7"
+  # - PYVER="3.4"
+  # - PYVER="3.5"
   - PYVER="3.6"
+  - PYVER="3.7"
 os:
   - linux
   - osx
@@ -37,6 +38,7 @@ install:
 script:
   - pytest --pylint --pylint-rcfile=.pyrcfile --pylint-error-types=EF splinart
   - cd tests; pytest --cov=splinart
+  - cd tests; pytest --cov=splinart; py.test --mpl-generate-path=baseline; py.test --mpl -m "long" test_circle.py
 
 after_success:
   - codecov -e $PYVER
